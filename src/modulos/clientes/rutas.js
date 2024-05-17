@@ -19,7 +19,7 @@ async function todos(req, res) {
 
 async function uno(req, res) {
     try{
-        const item = await controlador.uno();
+        const item = await controlador.uno(req.params.id);
         respuesta.success(req, res, item, 200);
     }catch(err){
         respuesta.error(req, res, err, 500);
