@@ -50,7 +50,16 @@ function uno(tabla, id) {
     });
 }
 
+function eliminar(tabla, data){
+    return new Promise((resolve, reject) => {
+        conexion.query(`SELECT * FROM ${tabla} WHERE id = ?`, data.id, (error, result) => {
+            return error ? reject(error) : resolve(result);
+        });
+    });
+}
+
 module.exports = {
     todos,
     uno,
+    eliminar,
 }
